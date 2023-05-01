@@ -9,7 +9,7 @@ router.get("/getallcars", async (req, res) => {
     return res.status(400).json(error);
   }
 });
-router.get("/getcar", async (req, res) => {           //not needed
+router.get("/getcar", async (req, res) => {           
   try {
     const cc = await Car.find({ _id: req.body._id });
     if(cc.length==0){
@@ -30,7 +30,7 @@ router.post("/addcar", async (req, res) => {
   }
 });
 
-router.patch("/editcar", async (req, res) => {            //post
+router.patch("/editcar", async (req, res) => {           
   try {
     const car = await Car.findOne({ _id: req.body._id });
     car.name = req.body.name;
@@ -47,7 +47,7 @@ router.patch("/editcar", async (req, res) => {            //post
   }
 });
 
-router.delete("/deletecar", async (req, res) => {                          //post
+router.delete("/deletecar", async (req, res) => {                          
   try {
     const v=await Car.findOneAndDelete({ _id: req.body.carid });
     //console.log(v);
